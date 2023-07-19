@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .heading1 {
+        text-align: center;
+    }
+
+    .abc {
+        float: left;
+
+
+    }
+
+    .abc>div {
+        float: left;
+
+
+    }
+
+    .zxc {
+        float: right;
+
+    }
+
+    .zxc>div {
+        float: right;
+    }
+
+
+    .box {
+        width: 24%;
+        margin: 5px;
+        padding: 12px;
+        box-sizing: border-box;
+        border: 2px solid black;
+        text-align: center;
+
+    }
+
+    .box2 {
+        width: 24%;
+        margin: 5px;
+        padding: 12px;
+        box-sizing: border-box;
+        border: 2px solid black;
+        text-align: center;
+
+
+    }
+
+    .button {
+        background-color: black;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        margin-left: 45%;
+    }
+</style>
+
+<body>
+
+    <div class="main">
+        <div class="heading1">
+
+
+            <h1>Dice Game</h1>
+            <h2 id="rndmNumber"></h2>
+            <h1><i id="pTurn"></i></h1>
+        </div>
+        <div class="abc">
+
+            <div class="box">
+                <p>1</p>
+            </div>
+
+            <div class="box">
+                <p>2</p>
+            </div>
+
+            <div class="box">
+                <p>3</p>
+            </div>
+            <div class="box">
+                <p>4</p>
+            </div>
+            <div class="box">
+                <p>5</p>
+            </div>
+            <div class="box">
+                <p>6</p>
+            </div>
+            <div class="box">
+                <p>7</p>
+            </div>
+            <div class="box">
+                <p>8</p>
+            </div>
+            <div class="box">
+                <p>9</p>
+            </div>
+            <div class="box">
+                <p>10</p>
+            </div>
+            <div class="box">
+                <p>11</p>
+            </div>
+            <div class="box">
+                <p>12</p>
+            </div>
+        </div>
+
+        <div class="zxc">
+
+
+            <div class="box2">
+                <p>1</p>
+
+            </div>
+            <div class="box2">
+                <p>2</p>
+
+            </div>
+            <div class="box2">
+                <p>3</p>
+
+            </div>
+            <div class="box2">
+                <p>4</p>
+
+            </div>
+            <div class="box2">
+                <p>5</p>
+
+            </div>
+            <div class="box2">
+                <p>6</p>
+
+            </div>
+            <div class="box2">
+                <p>7</p>
+
+            </div>
+            <div class="box2">
+                <p>8</p>
+
+            </div>
+            <div class="box2">
+                <p>9</p>
+
+            </div>
+            <div class="box2">
+                <p>10</p>
+            </div>
+
+            <div class="box2">
+                <p>11</p>
+            </div>
+
+            <div class="box2">
+                <p>12</p>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <button class="button" onclick="playGame()">Play</button>
+
+
+
+    </div>
+
+</body>
+<script>
+    let tp = 0
+    let tp1 = 0
+    let pl = "x"
+    let
+
+    function playGame() {
+        let sound = new Audio("sound.mp3")
+        sound.play()
+        var x = Math.floor((Math.random() * 6) + 1);
+
+
+
+
+
+        if (pl == "x") {
+            tp = tp + x
+            if (tp <= 12) {
+                for (i = 0; i < tp; i++) {
+                    document.getElementsByClassName("box")[i].style.backgroundColor = "green"
+                }
+                document.getElementById("pTurn").innerHTML = "Player 2 Turn"
+
+                if (tp == 12) {
+                    alert("X player won!")
+                    document.getElementById("pTurn").innerHTML = "Game Over"
+                }
+
+
+            }
+
+            else {
+                tp = tp - x
+                document.getElementById("pTurn").innerHTML = "please try again after player 2 turn!!"
+            }
+        }
+
+
+
+
+        if (pl == "0") {
+            tp1 = tp1 + x
+            if (tp1 <= 12) {
+                for (i = 0; i < tp1; i++) {
+                    document.getElementsByClassName("box2")[i].style.backgroundColor = "red"
+                    document.getElementById("pTurn").innerHTML = "Player 1 Turn"
+
+                }
+                if (tp1 == 12) {
+                    alert("0 player won!")
+                    document.getElementById("pTurn").innerHTML = "Game Over"
+                }
+            }
+
+            else {
+                tp1 = tp1 - x
+                document.getElementById("pTurn").innerHTML = "please try again after player 1 turn!"
+            }
+        }
+
+
+
+        document.getElementById("rndmNumber").innerHTML = x
+        if (pl == "x") {
+            pl = "0"
+        }
+        else {
+            pl = "x"
+        }
+
+    }
+</script>
+
+</html>
